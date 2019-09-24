@@ -1,0 +1,50 @@
+﻿@model ContosoVet.ViewModels.ListTechniciansViewModel;
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="card-body">
+    <a class="btn btn-success" asp-controller="Technician"
+       asp-action="Technician"
+       role="button">Add technician</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">Id</th>
+            <th><span style="font-size:24px"></span>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    @foreach (var tech in Model.Technicians)
+    {
+        <tbody>
+            <tr>
+                <td class="text-center">@tech.Id</td>
+                <td>@tech.Name</td>
+                <td>@tech.PhoneNumber</td>
+                <td>@tech.Email</td>
+                <td>@tech.Address</td>
+                <td class="td-actions text-center">
+                    <button type="button" rel="tooltip" class="">
+                        <a asp-controller="Technician"
+                           asp-action="Technician"
+                           asp-route-id="@tech.Id"><span style="color:indianred"></span>Update</a>
+                    </button>
+                    <button type="button" rel="tooltip" class="">
+                        <a asp-controller="Technician"
+                           asp-action="Delete"
+                           asp-route-id="@tech.Id"><span style="color:darkred"></span>Delete</a>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+

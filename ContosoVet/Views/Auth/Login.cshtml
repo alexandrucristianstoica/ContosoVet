@@ -1,0 +1,34 @@
+﻿@model ContosoVet.ViewModels.LoginViewModel;
+<br>
+<br>
+<br>
+<br>
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+                <div class="card card-login">
+                    <form class="form" asp-controller="Auth" asp-action="Login">
+                        <div class="card-header card-header text-center">
+                            <h4 class="card-title">Log in</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input asp-for="Username"
+                                       type="text" class="form-control" placeholder="Username...">
+                            </div>
+                            <div class="input-group">
+                                <input asp-for="Password"
+                                       type="password" class="form-control" placeholder="Password...">
+                            </div>
+                        </div>
+                        <div class="submit text-center">
+                            <input type="submit" href="#pablo" class="btn btn-dark btn-success" value="Log in">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

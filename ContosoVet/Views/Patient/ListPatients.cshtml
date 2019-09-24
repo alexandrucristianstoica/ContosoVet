@@ -1,0 +1,51 @@
+﻿@model ContosoVet.ViewModels.ListPatientsViewModel;
+
+<br>
+<br>
+<br>
+<br>
+<div class="card-body">
+    <a class="btn btn-success" asp-controller="Patient"
+       asp-action="Patient"
+       role="button">Add patient</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">Id</th>
+            <th><span style="font-size:24px"></span>Name</th>
+            <th>Type</th>
+            <th>Age</th>
+            <th>Owner</th>
+            <th class="text-center">Photo</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    @foreach (var patient in Model.Patients)
+    {
+        <tbody>
+            <tr>
+                <td class="text-center">@patient.Id</td>
+                <td>@patient.Name</td>
+                <td>@patient.Type</td>
+                <td>@patient.Age</td>
+                <td>@patient.Owner.Name</td>
+                <td class="text-center"><img src="@patient.PhotoUrl" class="img img-responsive img-thumbnail" width="100" height="100"/></td>
+                <td class="td-actions text-center">
+                    <button type="button" rel="tooltip" class="">
+                        <a asp-controller="Patient"
+                           asp-action="Patient"
+                           asp-route-id="@patient.Id"><span style="color:indianred"></span>Update</a>
+                    </button>
+                    <button type="button" rel="tooltip" class="">
+                        <a asp-controller="Patient"
+                           asp-action="Delete"
+                           asp-route-id="@patient.Id"><span style="color:darkred"></span>Delete</a>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+

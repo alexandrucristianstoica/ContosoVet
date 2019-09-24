@@ -1,0 +1,84 @@
+﻿@model ContosoVet.ViewModels.ClientViewModel;
+<div>
+    @if (Model.Client == null)
+    {
+        <div class="contact-page">
+            <div id="contactUsMap" class="big-map"></div>
+            <div class="main-raised">
+                <div class="contact-content">
+                    <div class="container">
+                        <h2 class="title">Create Client</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form asp-controller="Client" asp-action="CreateClient">
+                                    <div class="form-group">
+                                        <label asp-for="Client.Name" class="bmd-label-floating">Name</label>
+                                        <input asp-for="Client.Name" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Client.Email" class="bmd-label-floating">Email address</label>
+                                        <input asp-for="Client.Email" type="email" class="form-control">
+                                        <span class="bmd-help"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Client.PhoneNumber" class="bmd-label-floating">Phone</label>
+                                        <input asp-for="Client.PhoneNumber" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Client.Address" class="bmd-label-floating">Address</label>
+                                        <input asp-for="Client.Address" class="form-control">
+                                    </div>
+                                    <div class="submit text-center">
+                                        <input type="submit" class="btn btn-success" value="Create Client">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="contact-page">
+            <div id="contactUsMap" class="big-map"></div>
+            <div class="main-raised">
+                <div class="contact-content">
+                    <div class="container">
+                        <h2 class="title">Update Client</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form asp-controller="Client" asp-action="Update">
+                                    <div class="form-group">
+                                        <label asp-for="Client.Name" class="bmd-label-floating">Name</label>
+                                        <input asp-for="Client.Name" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Client.Email" class="bmd-label-floating">Email address</label>
+                                        <input asp-for="Client.Email" type="email" class="form-control">
+                                        <span class="bmd-help"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Client.PhoneNumber" class="bmd-label-floating">Phone</label>
+                                        <input asp-for="Client.PhoneNumber" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Client.Address" class="bmd-label-floating">Address</label>
+                                        <input asp-for="Client.Address" class="form-control">
+                                    </div>
+                                    <div class="submit text-center">
+                                        <input type="submit" class="btn btn-success" value="Update">
+                                    </div>
+                                    <div style="display: none">
+                                        <input asp-for="Client.Id" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

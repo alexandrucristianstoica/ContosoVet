@@ -1,0 +1,49 @@
+﻿@model ContosoVet.ViewModels.ListDoctorsViewModel;
+
+<br>
+<br>
+<br>
+<br>
+<div class="card-body">
+    <a class="btn btn-success" asp-controller="Doctor"
+       asp-action="Doctor"
+       role="button">Add doctor</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">Id</th>
+            <th><span style="font-size:24px"></span>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    @foreach (var doctor in Model.Doctors)
+    {
+        <tbody>
+            <tr>
+                <td class="text-center">@doctor.Id</td>
+                <td>@doctor.Name</td>
+                <td>@doctor.PhoneNumber</td>
+                <td>@doctor.Email</td>
+                <td>@doctor.Address</td>
+                <td class="td-actions text-center">
+                    <button type="button" rel="tooltip" class="">
+                        <a asp-controller="Doctor"
+                           asp-action="Doctor"
+                           asp-route-id="@doctor.Id"><span style="color:indianred"></span>Update</a>
+                    </button>
+                    <button type="button" rel="tooltip" class="">
+                        <a asp-controller="Doctor"
+                           asp-action="Delete"
+                           asp-route-id="@doctor.Id"><span style="color:darkred"></span>Delete</a>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+

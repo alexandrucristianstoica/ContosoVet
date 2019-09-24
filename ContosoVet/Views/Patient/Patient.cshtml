@@ -1,0 +1,81 @@
+﻿@model ContosoVet.ViewModels.PatientViewModel;
+
+@if (Model.Patient == null)
+{
+    <div class="contact-page">
+        <div id="contactUsMap" class="big-map"></div>
+        <div class="main-raised">
+            <div class="contact-content">
+                <div class="container">
+                    <h2 class="title">Create Patient</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form asp-controller="Patient" asp-action="CreatePatient">
+                                <div class="form-group">
+                                    <label asp-for="Patient.Name" class="bmd-label-floating">Name</label>
+                                    <input asp-for="Patient.Name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Patient.Type" class="bmd-label-floating">Type</label>
+                                    <input asp-for="Patient.Type" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Patient.Age" class="bmd-label-floating">Age</label>
+                                    <input asp-for="Patient.Age" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Patient.Owner.Id" class="bmd-label-floating">Owner</label>
+                                    <select asp-for="Patient.Owner.Id" asp-items="Model.Clients"></select>
+                                </div>
+                                <div class="submit text-center">
+                                    <input type="submit" class="btn btn-success" value="Create Patient">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="contact-page">
+        <div id="contactUsMap" class="big-map"></div>
+        <div class="main-raised">
+            <div class="contact-content">
+                <div class="container">
+                    <h2 class="title">Update Patient</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form asp-controller="Patient" asp-action="Update">
+                                <div class="form-group">
+                                    <label asp-for="Patient.Name" class="bmd-label-floating">Name</label>
+                                    <input asp-for="Patient.Name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Patient.Type" class="bmd-label-floating">Type</label>
+                                    <input asp-for="Patient.Type" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Patient.Age" class="bmd-label-floating">Age</label>
+                                    <input asp-for="Patient.Age" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Patient.Owner.Id" class="bmd-label-floating">Owner</label>
+                                    <select asp-for="Patient.Owner.Id" asp-items="Model.Clients"></select>
+                                </div>
+                                <div class="submit text-center">
+                                    <input type="submit" class="btn btn-success" value="Update">
+                                </div>
+                                <div style="display: none">
+                                    <input asp-for="Patient.Id" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

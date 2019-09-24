@@ -1,0 +1,83 @@
+﻿@model ContosoVet.ViewModels.DoctorViewModel;
+
+@if (Model.Doctor==null)
+{
+    <div class="contact-page">
+        <div id="contactUsMap" class="big-map"></div>
+        <div class="main-raised">
+            <div class="contact-content">
+                <div class="container">
+                    <h2 class="title">Create Doctor</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form asp-controller="Doctor" asp-action="CreateDoctor">
+                                <div class="form-group">
+                                    <label asp-for="Doctor.Name" class="bmd-label-floating">Name</label>
+                                    <input asp-for="Doctor.Name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Doctor.Email" class="bmd-label-floating">Email address</label>
+                                    <input asp-for="Doctor.Email" type="email" class="form-control">
+                                    <span class="bmd-help"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Doctor.PhoneNumber" class="bmd-label-floating">Phone</label>
+                                    <input asp-for="Doctor.PhoneNumber" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Doctor.Address" class="bmd-label-floating">Address</label>
+                                    <input asp-for="Doctor.Address" class="form-control">
+                                </div>
+                                <div class="submit text-center">
+                                    <input type="submit" class="btn btn-success" value="Create Doctor">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="contact-page">
+        <div id="contactUsMap" class="big-map"></div>
+        <div class="main-raised">
+            <div class="contact-content">
+                <div class="container">
+                    <h2 class="title">Update Doctor</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form asp-controller="Doctor" asp-action="Update">
+                                <div class="form-group">
+                                    <label asp-for="Doctor.Name" class="bmd-label-floating">Name</label>
+                                    <input asp-for="Doctor.Name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Doctor.Email" class="bmd-label-floating">Email address</label>
+                                    <input asp-for="Doctor.Email" type="email" class="form-control">
+                                    <span class="bmd-help"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Doctor.PhoneNumber" class="bmd-label-floating">Phone</label>
+                                    <input asp-for="Doctor.PhoneNumber" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Doctor.Address" class="bmd-label-floating">Address</label>
+                                    <input asp-for="Doctor.Address" class="form-control">
+                                </div>
+                                <div class="submit text-center">
+                                    <input type="submit" class="btn btn-success" value="Update">
+                                </div>
+                                <div style="display: none">
+                                    <input asp-for="Doctor.Id" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

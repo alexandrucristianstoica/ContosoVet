@@ -1,0 +1,83 @@
+﻿@model ContosoVet.ViewModels.AppointmentViewModel;
+
+@if (Model.Appointment == null)
+{
+<div class="contact-page">
+    <div id="contactUsMap" class="big-map"></div>
+    <div class="main-raised">
+        <div class="contact-content">
+            <div class="container">
+                <h2 class="title">Create Appointment</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form asp-controller="Appointment" asp-action="CreateAppointment">
+                            <div class="form-group">
+                                <label asp-for="Appointment.Patient.Id" class="bmd-label-floating">Patient</label>
+                                <select asp-for="Appointment.Patient.Id" asp-items="Model.Patients"></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Appointment.Doctor.Id" class="bmd-label-floating">Doctor</label>
+                                <select asp-for="Appointment.Doctor.Id" asp-items="Model.Doctors"></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Appointment.Technician.Id" class="bmd-label-floating">Technician</label>
+                                <select asp-for="Appointment.Technician.Id" asp-items="Model.Technicians"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-control a" asp-for="Appointment.DateTime">Datetime Picker</label>
+                                <input asp-for="Appointment.DateTime" type="datetime-local" class="form-control datetimepicker" value="10/05/2016" />
+                            </div>
+                            <div class="submit text-center">
+                                <input type="submit" class="btn btn-success" value="Create Appointment">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+else
+{
+    <div class="contact-page">
+        <div id="contactUsMap" class="big-map"></div>
+        <div class="main-raised">
+            <div class="contact-content">
+                <div class="container">
+                    <h2 class="title">Update Appointment</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form asp-controller="Appointment" asp-action="Update">
+                                <div class="form-group">
+                                    <label asp-for="Appointment.Patient.Id" class="bmd-label-floating">Patient</label>
+                                    <select asp-for="Appointment.Patient.Id" asp-items="Model.Patients"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Appointment.Doctor.Id" class="bmd-label-floating">Doctor</label>
+                                    <select asp-for="Appointment.Doctor.Id" asp-items="Model.Doctors"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Appointment.Technician.Id" class="bmd-label-floating">Technician</label>
+                                    <select asp-for="Appointment.Technician.Id" asp-items="Model.Technicians"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label-control" asp-for="Appointment.DateTime">Datetime Picker</label>
+                                    <input asp-for="Appointment.DateTime" type="datetime-local" class="form-control datetimepicker" value="10/05/2016" />
+                                </div>
+                                <div class="submit text-center">
+                                    <input type="submit" class="btn btn-success" value="Update">
+                                </div>
+                                <div style="display: none">
+                                    <input asp-for="Appointment.Id" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContosoVet</title>
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link href="~/css/material-kit.css" rel="stylesheet" />
+
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg bg-dark" style="margin:0">
+        <div class="container">
+            <a asp-controller="Home" asp-action="Index" class="navbar-brand">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" style="background-color:white" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar navbar-kebab">Menu</span>
+                <span class="navbar-toggler-bar navbar-kebab"></span>
+                <span class="navbar-toggler-bar navbar-kebab"></span>
+            </button>
+
+            @*<div class="collapse navbar-collapse" id="navbarNav ">
+        <ul class="navbar-nav align-content-center">*@
+            @if (Context.User.Identity.IsAuthenticated)
+            {
+                <div class="collapse navbar-collapse" id="navbarNav ">
+                    <ul class="navbar-nav  navbar-left">
+
+                        <li class="nav-item" style="float:left">
+                            <a asp-controller="Client" asp-action="ListClients" class="nav-link"><span style="display:block"><span style="padding:2px">Client</span></span></a>
+                        </li>
+                        <li class="nav-item" style="float:left">
+                            <a asp-controller="Doctor" asp-action="ListDoctors" class="nav-link"><span style="display:block"><span style="padding:2px">Doctor</span></span></a>
+                        </li>
+                        <li class="nav-item" style="float:left">
+                            <a asp-controller="Technician" asp-action="ListTechnicians" class="nav-link"><span style="display:block"><span style="padding:2px">Technician</span></span></a>
+                        </li>
+                        <li class="nav-item" style="float:left">
+                            <a asp-controller="Patient" asp-action="ListPatients" class="nav-link"><span style="display:block"><span style="padding:2px">Patient</span></span></a>
+                        </li>
+                        <li class="nav-item" style="float:left">
+                            <a asp-controller="Appointment" asp-action="ListAppointments" class="nav-link"><span style="display:block"><span style="padding:2px">Schedules</span></span></a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item" style="float:left">
+                            <span class="navbar-text">
+                                Logged in: @Context.User.Identity.Name
+                            </span>
+                        </li>
+
+                        <li class="nav-item" style="float:left">
+                            <a asp-controller="Auth" , asp-action="Signout" class="nav-link"><span style="display:block"><span style="padding:2px">Sign out</span></span></a>
+                        </li>
+                    </ul>
+                    @*</ul>
+                </div>*@
+
+                </div>
+            }
+
+            else
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item" style="float:left">
+                        <a asp-controller="Auth" asp-action="Login" class="nav-link"><span style="display:block"><span style="padding:2px">Log in</span></span></a>
+                    </li>
+                    <li class="nav-item" style="float:left">
+                        <a asp-controller="Auth" asp-action="Signup" class="nav-link"><span style="display:block"><span style="padding:2px">Sign up</span></span></a>
+                    </li>
+
+                </ul>
+            }
+                </div>
+    </nav>
+
+
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; 2019 - ContosoVet</p>
+                </footer>
+            </div>
+
+
+
+            @RenderSection("Scripts", required: false)
+            <script src="~/js/jquery.min.js" type="text/javascript"></script>
+            <script src="~/js/popper.min.js" type="text/javascript"></script>
+            <script src="~/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+            <script src="~/js/bootstrap-material-design.min.js" type="text/javascript"></script>
+            <script src="~/js/bootstrap-selectpicker.js" type="text/javascript"></script>
+            <script src="~/js/bootstrap-tagsinput.js" type="text/javascript"></script>
+            <script src="~/js/jasny-bootstrap.min.js" type="text/javascript"></script>
+            <script src="~/js/jquery.flexisel.js" type="text/javascript"></script>
+            <script src="~/js/material-kit.js" type="text/javascript"></script>
+            <script src="~/js/moment.min.js" type="text/javascript"></script>
+            <script src="~/js/nouislider.min.js" type="text/javascript"></script>
+</body>
+</html>

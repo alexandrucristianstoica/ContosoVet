@@ -1,0 +1,49 @@
+﻿@model ContosoVet.ViewModels.ListAppointmentsViewModel;
+
+<br>
+<br>
+<br>
+<br>
+<div class="card-body">
+    <a class="btn btn-success" asp-controller="Appointment"
+       asp-action="Appointment"
+       role="button">Add appointment</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">Id</th>
+            <th><span style="font-size:24px"></span>Patient</th>
+            <th><span style="font-size:24px"></span>Doctor</th>
+            <th><span style="font-size:24px"></span>Technician</th>
+            <th><span style="font-size:24px"></span>Date Time</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    @foreach (var appointment in Model.Appointments)
+    {
+        <tbody>
+            <tr>
+                <td class="text-center">@appointment.Id</td>
+                <td>@appointment.Patient.Name</td>
+                <td>@appointment.Doctor.Name</td>
+                <td>@appointment.Technician.Name</td>
+                <td>@appointment.DateTime</td>
+
+                <td class="td-actions text-center">
+                    <button type="button" rel="tooltip" class="">
+                        <a asp-controller="Appointment"
+                           asp-action="Appointment"
+                           asp-route-id="@appointment.Id"><span style="color:indianred"></span>Update</a>
+                    </button>
+                    <button type="button" rel="tooltip" class="">
+                        <a asp-controller="Appointment"
+                           asp-action="Delete"
+                           asp-route-id="@appointment.Id"><span style="color:darkred"></span>Delete</a>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+
